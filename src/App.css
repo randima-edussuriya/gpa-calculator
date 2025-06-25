@@ -1,0 +1,13 @@
+.removeIcon {
+  font-size: 20px !important;
+  padding: 0 2px !important;
+  border-radius: 20% !important;
+  color:  red !important;
+  transition:  0.3s !important;;
+}
+
+.removeIcon:hover {
+  background-color: rgb(255, 0, 0) !important;
+  color: white !important;
+  cursor: pointer !important;
+}
