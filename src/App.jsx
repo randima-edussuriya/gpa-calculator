@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Col, Container, Form, Row, Button, Table } from 'react-bootstrap'
 import './App.css'
 import { toast } from 'react-toastify'
+import Swal from 'sweetalert2'
 
 function App() {
   const gradingSystem = [
@@ -54,9 +55,23 @@ function App() {
   }
 
   const handleRemove = (index) => {
-    const updatedModules = [...modules];
-    updatedModules.splice(index, 1);
-    setModules(updatedModules);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#212529",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Remove",
+      width: '20em'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedModules = [...modules];
+        updatedModules.splice(index, 1);
+        setModules(updatedModules);
+      }
+    });
+
   }
 
   const getGradePoint = (grade) => {
