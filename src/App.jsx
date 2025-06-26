@@ -21,6 +21,12 @@ function App() {
     { grade: 'T', gradePoint: 0.0 },
   ]
 
+  const classSystem = [
+    { name: 'First Class', min: 3.70, max: null },
+    { name: 'Second Class – Upper Division', min: 3.30, max: 3.69 },
+    { name: 'Second Class – Lower Division', min: 3.00, max: 3.29 },
+    { name: 'Pass', min: 2.00, max: 2.99 },
+  ]
 
   const [formData, setFormData] = useState({
     moduleTitle: '',
@@ -33,7 +39,6 @@ function App() {
   const handleChange = (e => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
   })
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -79,16 +84,33 @@ function App() {
     return parseFloat(found?.gradePoint) ?? 0;
   }
 
-  const calculateGPA = () => {
+  const getTotalCredits = () => {
+    return modules.reduce((sum, module) => (sum + module.credit), 0)
+  }
+
+  const getCalculateGPA = () => {
     const totalCreditsAndGradePoint = modules.reduce((sum, module) => (sum + (module.credit * getGradePoint(module.grade))), 0);
-    const totalCredits = modules.reduce((sum, module) => (sum + module.credit), 0)
+    const totalCredits = getTotalCredits();
     console.log(totalCredits);
     return totalCredits > 0 ? (totalCreditsAndGradePoint / totalCredits).toFixed(2) : 0;
   }
 
+  const getClassName = (gpa) => {
+    const foundClass = classSystem.find(item => {
+      const isMinOk = gpa >= item.min;
+      const isMaxOk = item.max === null ? true : gpa <= item.max;
+      return isMinOk && isMaxOk;
+    })
+    return foundClass?.name ?? 'Not Pass';
+  }
+
+
   return (
     <Container fluid className='bg-dark-subtle d-flex flex-column min-vh-100'>
       <Container className='flex-grow-1'>
+        {/* ----------------------------------------------------------------------
+              Add module section
+        -------------------------------------------------------------------------- */}
         <Container className='pt-3' >
           <h2 className='text-center my-3'>GPA Calculator</h2>
           <Form onSubmit={handleSubmit}>
@@ -141,37 +163,77 @@ function App() {
             </Row>
           </Form>
         </Container>
-        {modules.length !== 0 && (
-          <Container className='mt-4'>
-            <Table responsive striped hover className='rounded overflow-hidden shadow'>
-              <thead>
-                <tr>
-                  <th>Module Title</th>
-                  <th>Credit</th>
-                  <th>Grade</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {modules.map((module, index) => (
-                  <tr key={index}>
-                    <td className=''>{module.moduleTitle}</td>
-                    <td>{module.credit}</td>
-                    <td>{module.grade}</td>
-                    <td>
-                      <i className="bi bi-x-lg removeIcon" onClick={() => handleRemove(index)}></i>
-                    </td>
-                  </tr>
-                ))}
 
-              </tbody>
-            </Table>
-            <h4 className='text-center mt-3 text-bg-light py-2 rounded shadow'>GPA : {calculateGPA()}</h4>
-          </Container>
+        {modules.length !== 0 && (
+          <>
+            {/* ----------------------------------------------------------------------
+              Statics Section
+            -------------------------------------------------------------------------- */}
+            <Container className='mt-4'>
+              <Row className='g-2'>
+                <Col xs={6} sm={3} >
+                  <Container className='staticCard bg-danger-subtle p-2 rounded shadow text-center h-100'>
+                    <span className='d-block h5 text-danger'>GPA</span>
+                    <span className='d-block h4'>{getCalculateGPA()}</span>
+                  </Container>
+                </Col>
+                <Col xs={6} sm={3} >
+                  <Container className='staticCard bg-info-subtle p-2 rounded shadow text-center h-100'>
+                    <span className='d-block h5 text-primary'>Class</span>
+                    <span className='d-block h4'>{getClassName(getCalculateGPA())}</span>
+                  </Container>
+                </Col>
+                <Col xs={6} sm={3} >
+                  <Container className='staticCard bg-warning-subtle p-2 rounded shadow text-center h-100'>
+                    <span className='d-block h5 text-warning-emphasis'>No of Modules</span>
+                    <span className='d-block h4'>{modules.length}</span>
+                  </Container>
+                </Col>
+                <Col xs={6} sm={3} >
+                  <Container className='staticCard bg-light-subtle p-2 rounded shadow text-center h-100'>
+                    <span className='d-block h5 text-muted'>Total Credits</span>
+                    <span className='d-block h4'>{getTotalCredits()}</span>
+                  </Container>
+                </Col>
+              </Row>
+            </Container>
+            {/* ----------------------------------------------------------------------
+              Modules Tabel Section
+            -------------------------------------------------------------------------- */}
+            <Container className='mt-4'>
+              <Table responsive striped hover className='rounded overflow-hidden shadow'>
+                <thead>
+                  <tr>
+                    <th>Module Title</th>
+                    <th>Credit</th>
+                    <th>Grade</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {modules.map((module, index) => (
+                    <tr key={index}>
+                      <td className=''>{module.moduleTitle}</td>
+                      <td>{module.credit}</td>
+                      <td>{module.grade}</td>
+                      <td>
+                        <i className="bi bi-x-lg removeIcon" onClick={() => handleRemove(index)}></i>
+                      </td>
+                    </tr>
+                  ))}
+
+                </tbody>
+              </Table>
+            </Container>
+          </>
         )}
       </Container>
-      <footer className='py-2 text-muted border-top'>
-        &copy; 2025 GPA Calculator | Developed by <a href='#' className='text-reset'>Randima Edussuriya</a>
+
+      {/* ----------------------------------------------------------------------
+              Footer Section
+        -------------------------------------------------------------------------- */}
+      <footer className='py-2 border-top border-4'>
+        &copy; 2025 GPA Calculator | Developed by <a href='https://github.com/randima-edussuriya' target='_blank' className='text-reset'>Randima Edussuriya</a>
       </footer>
     </Container>
   )

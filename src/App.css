@@ -1,13 +1,27 @@
+/* -----------------------------------------------------
+      Remove Icon
+-------------------------------------------------------- */
 .removeIcon {
   font-size: 20px !important;
   padding: 0 2px !important;
   border-radius: 20% !important;
-  color:  red !important;
-  transition:  0.3s !important;;
+  color: red !important;
+  transition: all 0.3s ease !important;
 }
 
 .removeIcon:hover {
   background-color: rgb(255, 0, 0) !important;
   color: white !important;
   cursor: pointer !important;
+}
+
+/* -----------------------------------------------------
+      Static Card
+-------------------------------------------------------- */
+.staticCard {
+  transition: all 0.3s ease !important;
+}
+
+.staticCard:hover {
+  transform: translateY(-5px) !important;
 }
