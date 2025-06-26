@@ -58,12 +58,12 @@ function App() {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
-      icon: "warning",
+      // icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#212529",
       cancelButtonColor: "#d33",
       confirmButtonText: "Remove",
-      width: '20em'
+      width: '17em'
     }).then((result) => {
       if (result.isConfirmed) {
         const updatedModules = [...modules];
@@ -155,7 +155,7 @@ function App() {
               <tbody>
                 {modules.map((module, index) => (
                   <tr key={index}>
-                    <td>{module.moduleTitle}</td>
+                    <td className=''>{module.moduleTitle}</td>
                     <td>{module.credit}</td>
                     <td>{module.grade}</td>
                     <td>
