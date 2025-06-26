@@ -138,7 +138,6 @@ function App() {
                   type='number'
                   name='credit'
                   placeholder="Credit"
-                  step='0.1'
                   min='0'
                   value={formData.credit}
                   onChange={handleChange}
