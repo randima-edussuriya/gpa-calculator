@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Col, Container, Form, Row, Button, Table, Image } from 'react-bootstrap'
+import { Col, Container, Form, Row, Button, Table, Image, Offcanvas } from 'react-bootstrap'
 import './App.css'
 import { toast } from 'react-toastify'
 import Swal from 'sweetalert2'
@@ -105,9 +105,25 @@ function App() {
     return foundClass?.name ?? 'Not Pass';
   }
 
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
-    <Container fluid className='bg-dark-subtle d-flex flex-column min-vh-100'>
+    <Container fluid className='bg-dark-subtle d-flex flex-column min-vh-100 position-relative'>
+      {/* ----------------------------------------------------------------------
+              Offcanvas for Privacy Policy
+        -------------------------------------------------------------------------- */}
+      <i className="helpIcon bi bi-question-circle text-end fs-2 position-absolute end-0 me-3" onClick={handleShow}></i>
+      <Offcanvas show={show} placement='end' scroll onHide={handleClose} className="bg-body-secondary">
+        <Offcanvas.Header closeButton>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <h5>Privacy Policy</h5>
+          <p>We respect your privacy. This GPA Calculator does not collect, store, or share any data you enter. All information stays in your browser and is cleared when you refresh or close the page.</p>
+        </Offcanvas.Body>
+      </Offcanvas>
+
       <Container className='flex-grow-1'>
         {/* ----------------------------------------------------------------------
               Add module section
