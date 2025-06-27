@@ -114,7 +114,7 @@ function App() {
       {/* ----------------------------------------------------------------------
               Offcanvas for Privacy Policy
         -------------------------------------------------------------------------- */}
-      <i className="helpIcon bi bi-question-circle text-end fs-2 position-absolute end-0 me-3" onClick={handleShow}></i>
+      <i className="helpIcon bi bi-question-circle text-end fs-2 position-absolute end-0 me-3 mt-2" onClick={handleShow}></i>
       <Offcanvas show={show} placement='end' scroll onHide={handleClose} className="bg-body-secondary">
         <Offcanvas.Header closeButton>
         </Offcanvas.Header>
