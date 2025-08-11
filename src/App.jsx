@@ -44,23 +44,27 @@ function App() {
     })
   }
 
-  const handleRemove = (index) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      showCancelButton: true,
-      confirmButtonColor: "#212529",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Remove",
-      width: '17em'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const updatedModules = [...modules];
-        updatedModules.splice(index, 1);
-        setModules(updatedModules);
-      }
-    });
+  const handleRemove = async (index) => {
+    const theme = localStorage.getItem('theme');
 
+    const confirm = await Swal.fire({
+      customClass: {
+        confirmButton: 'btn btn-dark',
+        cancelButton: 'btn btn-danger',
+        title: 'h4',
+      },
+      title: "Are you sure?",
+      showCancelButton: true,
+      confirmButtonText: "Remove",
+      width: '15em',
+      theme: `${theme}`
+    })
+
+    if (!confirm.isConfirmed) return;
+
+    const updatedModules = [...modules];
+    updatedModules.splice(index, 1);
+    setModules(updatedModules);
   }
 
   const [show, setShow] = useState(false);
