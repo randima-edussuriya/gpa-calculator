@@ -73,9 +73,9 @@ function App() {
       {/* ---------------------------------------------------------------------
             Top menu icons
         ----------------------------------------------------------------------- */}
-      <Container fluid className='position-absolute end-0 d-flex gap-3 justify-content-end'>
+      <Container fluid className='position-absolute end-0 d-flex gap-3 justify-content-end pt-2 pe-3'>
         <DarkModeToggle />
-        <i className="helpIcon bi bi-question-circle fs-2" onClick={handleShow}></i>
+        <i className="topMenuIcon bi bi-question-circle fs-2" onClick={handleShow}></i>
       </Container>
       {/* ----------------------------------------------------------------------
               Offcanvas for Privacy Policy
