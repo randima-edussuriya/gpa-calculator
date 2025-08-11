@@ -10,6 +10,7 @@ import OffCanvas from './components/OffCanvas'
 import GradingAndOtherSystem from './components/GradingAndOtherSystem'
 import Footer from './components/Footer'
 import { gradingSystem, classSystem } from './Constants/systemData'
+import DarkModeToggle from './components/DarkModeToggle'
 
 function App() {
   const [formData, setFormData] = useState({
@@ -69,10 +70,17 @@ function App() {
 
   return (
     <Container fluid className='bg-dark-subtle d-flex flex-column min-vh-100 position-relative'>
+      {/* ---------------------------------------------------------------------
+            Top menu icons
+        ----------------------------------------------------------------------- */}
+      <Container fluid className='position-absolute end-0 d-flex gap-3 justify-content-end'>
+        <DarkModeToggle />
+        <i className="helpIcon bi bi-question-circle fs-2" onClick={handleShow}></i>
+      </Container>
       {/* ----------------------------------------------------------------------
               Offcanvas for Privacy Policy
         -------------------------------------------------------------------------- */}
-      <OffCanvas handleShow={handleShow} show={show} handleClose={handleClose} />
+      <OffCanvas show={show} handleClose={handleClose} />
 
       <Container className='flex-grow-1'>
         {/* ----------------------------------------------------------------------
