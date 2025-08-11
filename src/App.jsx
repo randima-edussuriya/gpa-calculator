@@ -26,9 +26,10 @@ function App() {
   })
 
   const handleSubmit = (e) => {
+    const theme = localStorage.getItem('theme');
     e.preventDefault();
     if (!formData.moduleTitle || !formData.credit | !formData.grade) {
-      toast.error('Please fill all fields', { autoClose: 2500 })
+      toast.error('Please fill all fields', { autoClose: 2500, theme: `${theme}` })
       return
     }
     setModules(prev => ([...prev, {
