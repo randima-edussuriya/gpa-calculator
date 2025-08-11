@@ -74,7 +74,7 @@ function App() {
   const handleShow = () => setShow(true);
 
   return (
-    <Container fluid className='bg-dark-subtle d-flex flex-column min-vh-100 position-relative'>
+    <Container fluid className='mainContainer bg-dark-subtle d-flex flex-column min-vh-100 position-relative'>
       {/* ---------------------------------------------------------------------
             Top menu icons
         ----------------------------------------------------------------------- */}

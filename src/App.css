@@ -1,7 +1,7 @@
 /*------------------------------------------------------
       main background
 --------------------------------------------------------*/
-[data-bs-theme="dark"] .bg-dark-subtle{
+[data-bs-theme="dark"] .mainContainer{
   background-color: #000000 !important;
 }
 
