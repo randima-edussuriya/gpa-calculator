@@ -8,11 +8,11 @@ function ModuleForm({ formData, gradingSystem, handleSubmit, handleChange }) {
             <Form onSubmit={handleSubmit}>
                 <Row className="align-items-center g-2 justify-content-center">
                     <Col md='6'>
-                        <Form.Label htmlFor="inlineFormInput" visuallyHidden>
+                        <Form.Label htmlFor="moduleTitle" visuallyHidden>
                             Module Title
                         </Form.Label>
                         <Form.Control
-                            id="inlineFormInput"
+                            id="moduleTitle"
                             type='text'
                             name='moduleTitle'
                             placeholder="Module Title"
@@ -22,11 +22,11 @@ function ModuleForm({ formData, gradingSystem, handleSubmit, handleChange }) {
                         />
                     </Col>
                     <Col md='auto'>
-                        <Form.Label htmlFor="inlineFormInput" visuallyHidden>
+                        <Form.Label htmlFor="credit" visuallyHidden>
                             Credit
                         </Form.Label>
                         <Form.Control
-                            id="inlineFormInput"
+                            id="credit"
                             type='number'
                             name='credit'
                             placeholder="Credit"
@@ -37,7 +37,10 @@ function ModuleForm({ formData, gradingSystem, handleSubmit, handleChange }) {
                         />
                     </Col>
                     <Col md="auto">
-                        <Form.Select aria-label="Default select example" name='grade' value={formData.grade} onChange={handleChange} >
+                        <Form.Label htmlFor='grade' visuallyHidden>
+                            Grade
+                        </Form.Label>
+                        <Form.Select id='grade' name='grade' value={formData.grade} onChange={handleChange} >
                             <option value=''>Select Grade</option>
                             {
                                 gradingSystem.map((row, index) => (
