@@ -10,8 +10,8 @@ import OffCanvas from './components/OffCanvas'
 import GradingAndOtherSystem from './components/GradingAndOtherSystem'
 import Footer from './components/Footer'
 import { gradingSystem, classSystem } from './Constants/systemData'
-import DarkModeToggle from './components/DarkModeToggle'
-import NavBar from './components/NavBar'
+import DarkModeToggle from './components/NavBar/DarkModeToggle'
+import NavBar from './components/NavBar/NavBar'
 
 function App() {
   const [formData, setFormData] = useState({
