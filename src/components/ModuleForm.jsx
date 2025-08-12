@@ -4,7 +4,6 @@ import { Form, Row, Col, Button } from 'react-bootstrap'
 function ModuleForm({ formData, gradingSystem, handleSubmit, handleChange }) {
     return (
         <>
-            <h2 className='text-center my-3'>GPA Calculator</h2>
             <Form onSubmit={handleSubmit}>
                 <Row className="align-items-center g-2 justify-content-center">
                     <Col md='6'>

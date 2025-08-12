@@ -1,15 +1,24 @@
 /*------------------------------------------------------
-      main background
+      main
 --------------------------------------------------------*/
-[data-bs-theme="dark"] .mainContainer{
+[data-bs-theme="dark"] .mainContainer {
   background-color: #000000 !important;
 }
 
+[data-bs-theme="dark"] .navBar {
+  box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.25) !important;
+}
+
 /* -----------------------------------------------------
-      module remove confirmation
+      Nav Icon
 -------------------------------------------------------- */
-[data-bs-theme="dark"] .swal2-popup {
-  border: 1px solid rgb(100, 100, 100) !important;
+.navIcon {
+  transition: all 0.3s ease !important;
+}
+
+.navIcon:hover {
+  cursor: pointer !important;
+  opacity: 0.7 !important;
 }
 
 /* -----------------------------------------------------
@@ -30,15 +39,10 @@
 }
 
 /* -----------------------------------------------------
-      Top Menu Icon
+      module remove confirmation
 -------------------------------------------------------- */
-.topMenuIcon {
-  transition: all 0.3s ease !important;
-}
-
-.topMenuIcon:hover {
-  cursor: pointer !important;
-  opacity: 0.7 !important;
+[data-bs-theme="dark"] .swal2-popup {
+  border: 1px solid rgb(100, 100, 100) !important;
 }
 
 /* -----------------------------------------------------

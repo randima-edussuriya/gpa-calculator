@@ -10,7 +10,8 @@ import OffCanvas from './components/OffCanvas'
 import GradingAndOtherSystem from './components/GradingAndOtherSystem'
 import Footer from './components/Footer'
 import { gradingSystem, classSystem } from './Constants/systemData'
-import DarkModeToggle from './components/DarkModeToggle'
+import DarkModeToggle from './components/NavBar/DarkModeToggle'
+import NavBar from './components/NavBar/NavBar'
 
 function App() {
   const [formData, setFormData] = useState({
@@ -25,6 +26,7 @@ function App() {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
   })
 
+  // add module
   const handleSubmit = (e) => {
     const theme = localStorage.getItem('theme');
     e.preventDefault();
@@ -45,6 +47,7 @@ function App() {
     })
   }
 
+  // module remove
   const handleRemove = async (index) => {
     const theme = localStorage.getItem('theme');
 
@@ -68,61 +71,57 @@ function App() {
     setModules(updatedModules);
   }
 
+  // Offcanvas function
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
-    <Container fluid className='mainContainer bg-dark-subtle d-flex flex-column min-vh-100 position-relative'>
-      {/* ---------------------------------------------------------------------
-            Top menu icons
-        ----------------------------------------------------------------------- */}
-      <Container fluid className='position-absolute end-0 d-flex gap-3 justify-content-end pt-2 pe-3'>
-        <DarkModeToggle />
-        <i className="topMenuIcon bi bi-question-circle fs-2" onClick={handleShow}></i>
-      </Container>
-      {/* ----------------------------------------------------------------------
+    <>
+      <NavBar handleShow={handleShow} />
+      <Container fluid className='mainContainer bg-dark-subtle d-flex flex-column min-vh-100'>
+        {/* ----------------------------------------------------------------------
               Offcanvas for Privacy Policy
         -------------------------------------------------------------------------- */}
-      <OffCanvas show={show} handleClose={handleClose} />
+        <OffCanvas show={show} handleClose={handleClose} />
 
-      <Container className='flex-grow-1'>
-        {/* ----------------------------------------------------------------------
+        <Container className='flex-grow-1'>
+          {/* ----------------------------------------------------------------------
               Add module section
         -------------------------------------------------------------------------- */}
-        <Container className='pt-3' >
-          <ModuleForm formData={formData} gradingSystem={gradingSystem} handleSubmit={handleSubmit} handleChange={handleChange} />
-        </Container>
+          <Container className='pt-5' >
+            <ModuleForm formData={formData} gradingSystem={gradingSystem} handleSubmit={handleSubmit} handleChange={handleChange} />
+          </Container>
 
-        {modules.length !== 0 && (
-          <>
-            {/* ----------------------------------------------------------------------
+          {modules.length !== 0 && (
+            <>
+              {/* ----------------------------------------------------------------------
               Statics Card Section
             -------------------------------------------------------------------------- */}
-            <Container className='mt-4'>
-              <StaticCards modules={modules} classSystem={classSystem} gradingSystem={gradingSystem} />
-            </Container>
-            {/* ----------------------------------------------------------------------
+              <Container className='mt-4'>
+                <StaticCards modules={modules} classSystem={classSystem} gradingSystem={gradingSystem} />
+              </Container>
+              {/* ----------------------------------------------------------------------
               Modules Tabel Section
             -------------------------------------------------------------------------- */}
-            <Container className='mt-4'>
-              <ModuleTable modules={modules} handleRemove={handleRemove} />
-            </Container>
-          </>
-        )}
-        {/* ----------------------------------------------------------------------
+              <Container className='mt-4'>
+                <ModuleTable modules={modules} handleRemove={handleRemove} />
+              </Container>
+            </>
+          )}
+          {/* ----------------------------------------------------------------------
               Grading System, Awarding of classes, GPA Formular section
         -------------------------------------------------------------------------- */}
-        <Container className='mt-4'>
-          <GradingAndOtherSystem gradingSystem={gradingSystem} classSystem={classSystem} />
+          <Container className='mt-4'>
+            <GradingAndOtherSystem gradingSystem={gradingSystem} classSystem={classSystem} />
+          </Container>
         </Container>
-      </Container>
-      {/* ----------------------------------------------------------------------
+        {/* ----------------------------------------------------------------------
               Footer Section
         -------------------------------------------------------------------------- */}
-      <Footer />
-    </Container>
+        <Footer />
+      </Container>
+    </>
   )
 }
 
