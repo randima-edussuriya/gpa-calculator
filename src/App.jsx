@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import { gradingSystem, classSystem } from './Constants/systemData'
 import DarkModeToggle from './components/Navigations/DarkModeToggle'
 import NavBar from './components/Navigations/NavBar'
+import ScrollToTop from './components/Navigations/ScrollToTop'
 
 function App() {
   const [formData, setFormData] = useState({
@@ -120,7 +121,7 @@ function App() {
               Footer Section
         -------------------------------------------------------------------------- */}
         <Footer />
-        {/* <i className="navIcon bi bi-arrow-up-circle fs-1 sticky-bottom ms-auto me-3 pb-3"></i> */}
+        <ScrollToTop />
       </Container>
     </>
   )
