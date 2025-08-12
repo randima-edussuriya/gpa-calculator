@@ -11,7 +11,7 @@ function NavBar({ handleShow }) {
                 </Navbar.Brand>
                 <Nav className="ms-auto gap-3">
                     <DarkModeToggle />
-                    <i className="topMenuIcon bi bi-question-circle fs-2" onClick={handleShow}></i>
+                    <i className="navIcon bi bi-question-circle fs-2" onClick={handleShow}></i>
                 </Nav>
             </Container>
         </Navbar>
