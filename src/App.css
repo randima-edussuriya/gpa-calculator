@@ -1,8 +1,12 @@
 /*------------------------------------------------------
-      main background
+      main
 --------------------------------------------------------*/
-[data-bs-theme="dark"] .mainContainer{
+[data-bs-theme="dark"] .mainContainer {
   background-color: #000000 !important;
+}
+
+[data-bs-theme="dark"] .navBar {
+  box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.3) !important;
 }
 
 /* -----------------------------------------------------

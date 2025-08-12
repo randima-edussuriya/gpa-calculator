@@ -4,7 +4,7 @@ import DarkModeToggle from './DarkModeToggle'
 
 function NavBar({ handleShow }) {
     return (
-        <Navbar className='bg-dark-subtle sticky-top'>
+        <Navbar className='navBar bg-dark-subtle sticky-top shadow'>
             <Container fluid className=''>
                 <Navbar.Brand >
                     <span className='h3'>GPA Calculator</span>
