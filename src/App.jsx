@@ -10,8 +10,9 @@ import OffCanvas from './components/OffCanvas'
 import GradingAndOtherSystem from './components/GradingAndOtherSystem'
 import Footer from './components/Footer'
 import { gradingSystem, classSystem } from './Constants/systemData'
-import DarkModeToggle from './components/NavBar/DarkModeToggle'
-import NavBar from './components/NavBar/NavBar'
+import DarkModeToggle from './components/Navigations/DarkModeToggle'
+import NavBar from './components/Navigations/NavBar'
+import ScrollToTop from './components/Navigations/ScrollToTop'
 
 function App() {
   const [formData, setFormData] = useState({
@@ -79,7 +80,7 @@ function App() {
   return (
     <>
       <NavBar handleShow={handleShow} />
-      <Container fluid className='mainContainer bg-dark-subtle d-flex flex-column min-vh-100'>
+      <Container fluid className='mainContainer bg-dark-subtle d-flex flex-column min-vh-100 position-relative'>
         {/* ----------------------------------------------------------------------
               Offcanvas for Privacy Policy
         -------------------------------------------------------------------------- */}
@@ -120,6 +121,7 @@ function App() {
               Footer Section
         -------------------------------------------------------------------------- */}
         <Footer />
+        <ScrollToTop />
       </Container>
     </>
   )
