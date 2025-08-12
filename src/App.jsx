@@ -26,6 +26,7 @@ function App() {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
   })
 
+  // add module
   const handleSubmit = (e) => {
     const theme = localStorage.getItem('theme');
     e.preventDefault();
@@ -46,6 +47,7 @@ function App() {
     })
   }
 
+  // module remove
   const handleRemove = async (index) => {
     const theme = localStorage.getItem('theme');
 
@@ -69,8 +71,8 @@ function App() {
     setModules(updatedModules);
   }
 
+  // Offcanvas function
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
