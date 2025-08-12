@@ -29,8 +29,8 @@ function ScrollToTop() {
             <Container fluid className='fixed-bottom text-end'>
                 <Button
                     onClick={scrollToTop}
-                    variant='light'
-                    className='btnScrolToTop shadow mb-3 me-1 border-0'
+                    variant='dark'
+                    className='btnScrolToTop shadow mb-5 me-1 opacity-75'
                     aria-label="Scroll to top"
                 >
                     <i className="bi bi-arrow-up"></i>
