@@ -79,7 +79,7 @@ function App() {
   return (
     <>
       <NavBar handleShow={handleShow} />
-      <Container fluid className='mainContainer bg-dark-subtle d-flex flex-column min-vh-100'>
+      <Container fluid className='mainContainer bg-dark-subtle d-flex flex-column min-vh-100 position-relative'>
         {/* ----------------------------------------------------------------------
               Offcanvas for Privacy Policy
         -------------------------------------------------------------------------- */}
@@ -120,6 +120,7 @@ function App() {
               Footer Section
         -------------------------------------------------------------------------- */}
         <Footer />
+        {/* <i className="navIcon bi bi-arrow-up-circle fs-1 sticky-bottom ms-auto me-3 pb-3"></i> */}
       </Container>
     </>
   )
