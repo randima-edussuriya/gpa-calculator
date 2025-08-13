@@ -15,32 +15,41 @@ import NavBar from './components/Navigations/NavBar'
 import ScrollToTop from './components/Navigations/ScrollToTop'
 
 function App() {
+  // form data
   const [formData, setFormData] = useState({
     moduleTitle: '',
     credit: '',
     grade: '',
   })
 
+  // modules, user has added
   const [modules, setModules] = useState([]);
 
+  // offcanvas
+  const [show, setShow] = useState(false);
+
+  // formdata change handler
   const handleChange = (e => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
   })
 
-  // add module
+  // add module handler
   const handleSubmit = (e) => {
     const theme = localStorage.getItem('theme');
     e.preventDefault();
+    // validate
     if (!formData.moduleTitle || !formData.credit | !formData.grade) {
       toast.error('Please fill all fields', { autoClose: 2500, theme: `${theme}` })
       return
     }
+    // add user modules
     setModules(prev => ([...prev, {
       moduleTitle: formData.moduleTitle,
       credit: parseFloat(formData.credit),
       grade: formData.grade,
     }]))
 
+    // reset form inputs
     setFormData({
       moduleTitle: '',
       credit: '',
@@ -48,10 +57,11 @@ function App() {
     })
   }
 
-  // module remove
+  // module remove handler
   const handleRemove = async (index) => {
     const theme = localStorage.getItem('theme');
 
+    // show confirmation alert
     const confirm = await Swal.fire({
       customClass: {
         confirmButton: 'btn btn-dark',
@@ -67,13 +77,13 @@ function App() {
 
     if (!confirm.isConfirmed) return;
 
+    // remove module
     const updatedModules = [...modules];
     updatedModules.splice(index, 1);
     setModules(updatedModules);
   }
 
-  // Offcanvas function
-  const [show, setShow] = useState(false);
+  // Offcanvas toggle handler
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
