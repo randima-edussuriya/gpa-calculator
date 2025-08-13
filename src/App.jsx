@@ -10,7 +10,6 @@ import OffCanvas from './components/OffCanvas'
 import GradingAndOtherSystem from './components/GradingAndOtherSystem'
 import Footer from './components/Footer'
 import { gradingSystem, classSystem } from './Constants/systemData'
-import DarkModeToggle from './components/Navigations/DarkModeToggle'
 import NavBar from './components/Navigations/NavBar'
 import ScrollToTop from './components/Navigations/ScrollToTop'
 
