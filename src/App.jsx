@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import './App.css'
 import { toast } from 'react-toastify'
@@ -22,7 +22,7 @@ function App() {
   })
 
   // modules, user has added
-  const [modules, setModules] = useState([]);
+  const [modules, setModules] = useState(JSON.parse(localStorage.getItem('modules')) || []);
 
   // offcanvas
   const [show, setShow] = useState(false);
@@ -31,6 +31,13 @@ function App() {
   const handleChange = (e => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
   })
+
+  // save modules to localStorage
+  useEffect(() => {
+    console.count('useeffect run')
+    localStorage.setItem('modules', JSON.stringify(modules))
+    console.log(modules)
+  }, [modules])
 
   // add module handler
   const handleSubmit = (e) => {
