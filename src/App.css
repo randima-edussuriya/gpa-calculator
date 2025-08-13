@@ -22,7 +22,7 @@
 }
 
 /* -----------------------------------------------------
-      Remove Icon
+      module Remove Icon
 -------------------------------------------------------- */
 .removeIcon {
   font-size: 20px !important;
@@ -57,8 +57,14 @@
 }
 
 /*--------------------------------------------------------
-      sroll to top btn
+      scroll to top btn
 ----------------------------------------------------------*/
+.btnScrolToTop {
+  bottom: 40px !important;
+  right: 10px !important;
+  padding: 10px 15px !important;
+}
+
 [data-bs-theme='dark'] .btnScrolToTop {
   box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.2) !important;
   opacity: 0.8 !important;

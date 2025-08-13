@@ -26,16 +26,14 @@ function ScrollToTop() {
     }, [])
     return (
         isVisible && (
-            <Container fluid className='fixed-bottom text-end'>
-                <Button
-                    onClick={scrollToTop}
-                    variant='dark'
-                    className='btnScrolToTop shadow mb-5 me-1 opacity-75'
-                    aria-label="Scroll to top"
-                >
-                    <i className="bi bi-arrow-up"></i>
-                </Button>
-            </Container>
+            <Button
+                onClick={scrollToTop}
+                variant='dark'
+                className='position-fixed btnScrolToTop rounded-circle shadow opacity-50'
+                aria-label="Scroll to top"
+            >
+                <i className="bi bi-arrow-up"></i>
+            </Button>
         )
     )
 }
