@@ -6,17 +6,19 @@ GPA Calculator is a web app that helps students calculate their GPA.
 
 
 ## 🖼️ Preview
-![GPA Calculator Preview](./src/assets/gpa-calculato-preview-3.png)
+![GPA Calculator Preview](./src/assets/mockup-4.png)
 
 ## 🚀 Features
 
-- 📱 Fully mobile-responsive
-- ➕ Add module with module title, credit value, grade (selectable)
-- 📊 Displays Calculated GPA, Class based on GPA, No of Modules, and Total Credits.
-- 📊 Displays List of added modules with credit and grade.
-- ❌ Remove modules anytime
-- ✅ Input validation
-- 🧾 Informational references included: Grading System, Class Awarding Criteria, GPA Formula
+- 📱 **Fully mobile-responsive** design for all devices
+- ➕ **Add modules** with title, credit value, and selectable grade
+- 📊 **Real-time GPA display**: Shows GPA, class based on GPA, total modules, and total credits
+- 📋 **Module list view**: See all added modules with credit and grade
+- ❌ **Remove modules** anytime
+- ✅ **Input validation**
+- 🌗 **Dark/Light mode toggle** - switch themes anytime
+- 📂 **Local storage support** - your data stays saved between visits
+- 🧾 **Helpful references included**: Grading system, class awarding criteria, GPA formula
 
 ---
 
