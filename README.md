@@ -6,7 +6,7 @@ GPA Calculator is a web app that helps students calculate their GPA.
 
 
 ## 🖼️ Preview
-![GPA Calculator Preview](./src/assets/gpa-calculato-preview-3.png)
+![GPA Calculator Preview](./src/assets/mockup-3.png)
 
 ## 🚀 Features
 
