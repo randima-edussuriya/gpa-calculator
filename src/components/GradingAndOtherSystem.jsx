@@ -1,5 +1,5 @@
 import React from 'react'
-import gpaFormular from '../assets/gpa formular.png'
+import gpaFormular from '../assets/gpa formular-1.png'
 import { Row, Col, Container, Table, Image } from 'react-bootstrap'
 
 function GradingAndOtherSystem({ gradingSystem, classSystem }) {
