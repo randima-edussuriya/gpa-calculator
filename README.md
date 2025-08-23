@@ -2,14 +2,18 @@
 
 GPA Calculator is a web app that helps students calculate their GPA.
 
-### 🌐 **Live Demo**: [https://gpa-calc-tool.netlify.apps](https://gpa-calc-tool.netlify.app)
+---
 
+### 🌐 **Live Demo**: [https://gpa-calc-tool.netlify.app](https://gpa-calc-tool.netlify.app)
+
+---
 
 ## 🖼️ Preview
 ![GPA Calculator Preview](./src/assets/mockup-4.png)
 
-## 🚀 Features
+---
 
+## 🚀 Features
 - 📱 **Fully mobile-responsive** design for all devices
 - ➕ **Add modules** with title, credit value, and selectable grade
 - 📊 **Real-time GPA display**: Shows GPA, class based on GPA, total modules, and total credits
@@ -23,7 +27,6 @@ GPA Calculator is a web app that helps students calculate their GPA.
 ---
 
 ## 🧪 Tech Stack
-
 <table>
   <tr>
     <td align="center">
@@ -56,9 +59,29 @@ GPA Calculator is a web app that helps students calculate their GPA.
 ---
 
 ## 📦 Dependencies
-
 - `bootstrap-icons`
 - `react-toastify`
 - `sweetalert2`
 
 ---
+
+## 🚀 Getting Started
+To run locally:
+```
+git clone https://github.com/randima-edussuriya/gpa-calculator.git
+cd gpa-calculator
+npm install
+npm run dev
+```
+Then App will be available at http://localhost:3000 in your browser.
+
+---
+
+## 🌍 Deployment
+- Hosted on [Netlify](https://www.netlify.com/)
+- Continuous deployment from GitHub main branch
+
+---
+
+## 📜 License
+This project is licensed under the [MIT License](./LICENSE).
