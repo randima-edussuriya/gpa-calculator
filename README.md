@@ -65,6 +65,12 @@ GPA Calculator is a web app that helps students calculate their GPA.
 
 ---
 
+## 🌍 Deployment
+- Hosted on [Netlify](https://www.netlify.com/)
+- Continuous deployment from GitHub main branch
+
+---
+
 ## 🚀 Getting Started
 To run locally:
 ```
@@ -74,12 +80,6 @@ npm install
 npm run dev
 ```
 Then App will be available at http://localhost:3000 in your browser.
-
----
-
-## 🌍 Deployment
-- Hosted on [Netlify](https://www.netlify.com/)
-- Continuous deployment from GitHub main branch
 
 ---
 
