@@ -1,4 +1,4 @@
-export const getGradePoint = (grade, gradingSystem) => {
+const getGradePoint = (grade, gradingSystem) => {
     const found = gradingSystem.find(item => item.grade === grade);
     return parseFloat(found?.gradePoint) ?? 0;
 }
